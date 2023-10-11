@@ -52,7 +52,6 @@ function App() {
           allGenres[item.id] = item
         ))
     })
-    console.log("allGenres" , allGenres)
 
     dispatch(getGenres(allGenres))
   }

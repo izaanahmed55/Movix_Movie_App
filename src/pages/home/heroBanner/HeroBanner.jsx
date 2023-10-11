@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./style.scss";
 
 import useFetch from "../../../hooks/useFetch";
 import Img from "../../../compoenents/lazyLoadImage/img";
 import ContentWrapper from "../../../compoenents/contentWrapper/ContentWrapper"
 
+import "./style.scss";
+
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
-    const { url } = useSelector((state) => state.home);
+    const { url } = useSelector(state => state.home);
     const { data, loading } = useFetch("/movie/upcoming");
 
     useEffect(() => {
         const bg =
-            url.backdrop +
+            url?.backdrop +
             data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
         setBackground(bg);
     }, [data]);
