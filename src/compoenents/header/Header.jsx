@@ -5,11 +5,10 @@ import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import "./style.scss";
-
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/movix-logo.svg";
 
-const Header = () => {
+const Header = () => { 
     const [show, setShow] = useState("top");
     const [lastScrollY, setLastScrollY] = useState(0);
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -73,7 +72,7 @@ const Header = () => {
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
           <ContentWrapper>
-            <div className="logo">
+            <div className="logo" onClick={() => navigate(`/search/${query}`)}>
               <img src={logo} alt=""/>
             </div>
             <ul className="menuItems">
