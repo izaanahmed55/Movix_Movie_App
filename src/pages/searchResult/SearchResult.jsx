@@ -1,12 +1,13 @@
 import {useState, useEffect} from "React"
 import { useParams } from "react-router-dom"
-import InfiniteScroll from "react-infinite-scroll-component"
+// import InfiniteScroll from "react-infinite-scroll-component"
+// import InfiniteScroll from 'react-infinite-scroller'
 
 import "./style.scss"
 
 import { fetchDataFromApi } from "../../utils/api"
 import ContentWrapper from "../../compoenents/contentWrapper/ContentWrapper"
-import MovieCard from "../../compoenents/movieCard/MovieCard"
+// import MovieCard from "../../compoenents/movieCard/MovieCard"
 import Spinner from "../../compoenents/spinner/Spinner"
 import noResults from "../../assets/no-results.png"
 
@@ -54,21 +55,20 @@ const SearchResult = () => {
               <div className="pageTitle">
                 {`Search ${data?.total_results > 1 ? "Results" : "Result"} of "${query}"`}
               </div>
-              <InfiniteScroll 
+              {/* <InfiniteScroll 
                 className="content" 
                 dataLength={data?.results?.length || []} 
                 next={fetchNextPageData}
                 hasMore={pageNum <= data?.total_pages}
                 loader={<Spinner/>}
                 >
-                
                 {data?.results?.map((item, index) => {
                   if(item?.media_type == 'person') return;
                   return(
                     <MovieCard key={index} data={item}/>
                   )
                 })}
-              </InfiniteScroll>
+              </InfiniteScroll> */}
             </>
           ) :
           (
